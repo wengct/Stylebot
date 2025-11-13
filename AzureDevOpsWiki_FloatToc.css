@@ -1,4 +1,4 @@
-﻿/*
+/*
 	只支援 md 檔內是使用 [[_TOC_]] 的目錄！
 */
 /* ===========================
@@ -11,11 +11,11 @@
   width: 46px !important;
   min-width: 46px !important;
   height: 46px !important;
-  border-radius: 999px !important;
+  border-radius: 14px !important;
   cursor: pointer !important;
   overflow: hidden !important;
   z-index: 999999 !important;
-  transition: none !important;
+  transition: all 0.25s ease !important;
   padding: 0 !important;
 }
 
