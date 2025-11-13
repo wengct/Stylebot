@@ -27,7 +27,7 @@
 
 /* icon 顯示（不屬於內容，所以不會被隱藏）*/
 .toc-container::before {
-  content: "??" !important;
+  content: "📖" !important;
   font-size: 20px !important;
   display: flex !important;
   align-items: center !important;
