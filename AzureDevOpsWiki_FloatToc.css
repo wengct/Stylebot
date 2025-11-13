@@ -1,62 +1,173 @@
 ﻿/*
 	只支援 md 檔內是使用 [[_TOC_]] 的目錄！
 */
-
-/* 固定在視窗右側 */
+/* ===========================
+   共同結構（不含顏色）
+   =========================== */
 .toc-container {
   position: fixed !important;
   top: 120px !important;
-  right: 20px !important;
-  width: 50px !important; 
-  min-width: 50px !important; 
-  height: 50px !important;
-  background: #ffe !important;
-  box-shadow: -2px 0 8px rgba(0,0,0,0.15) !important;
-  border-radius: 8px !important;
+  right: 24px !important;
+  width: 46px !important;
+  min-width: 46px !important;
+  height: 46px !important;
+  border-radius: 999px !important;
   cursor: pointer !important;
   overflow: hidden !important;
   z-index: 999999 !important;
-  transition: all 0.25s ease !important;
-  padding: 0px !important;
+  transition: none !important;
+  padding: 0 !important;
 }
 
-/* 收合狀態：隱藏所有內容（才不會撐寬度） */
+/* 收合狀態 */
 .toc-container > * {
   display: none !important;
 }
 
-/* icon 顯示（不屬於內容，所以不會被隱藏）*/
 .toc-container::before {
-  content: "📖" !important;
-  font-size: 20px !important;
+  content: "📑" !important;
+  font-size: 18px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   width: 100% !important;
   height: 100% !important;
-  background: #9393FF	 !important;
 }
 
-/* 展開後 */
+/* 展開狀態 */
 .toc-container:hover {
-  width: auto !important;
+  width: 260px !important;
+  min-width: 260px !important;
   height: 80vh !important;
-  padding: 0px 40px 0px 0px !important;
+  max-height: 80vh !important;
+  border-radius: 14px !important;
+  padding: 14px 18px 14px 16px !important;
+  overflow-y: auto !important;
 }
 
-/* 展開：顯示內容 */
 .toc-container:hover > * {
   display: block !important;
 }
 
-/* 展開後隱藏 icon */
 .toc-container:hover::before {
   display: none !important;
 }
 
-/* 展開後支援捲軸 */
+/* 內部排版 */
+.toc-container h1,
+.toc-container h2,
+.toc-container h3 {
+  margin: 0 0 8px 0 !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+
+.toc-container h1:first-child,
+.toc-container h2:first-child,
+.toc-container h3:first-child {
+  padding-bottom: 6px !important;
+  border-bottom: 1px solid;
+  margin-bottom: 10px !important;
+}
+
+.toc-container ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin: 0 !important;
+}
+
+.toc-container li {
+  margin: 3px 0 !important;
+  line-height: 1.4 !important;
+  position: relative !important;
+  padding-left: 12px !important;
+}
+
+.toc-container li::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0.7em !important;
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 999px !important;
+}
+
+.toc-container ul ul li {
+  padding-left: 18px !important;
+  font-size: 12px !important;
+  opacity: 0.9 !important;
+}
+
+.toc-container a {
+  text-decoration: none !important;
+  display: inline-block !important;
+  padding: 2px 4px 2px 0 !important;
+  border-radius: 4px !important;
+  max-width: 100% !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.toc-container a:focus-visible {
+  outline: 1px solid !important;
+  outline-offset: 1px !important;
+}
+
+
+.toc-container {
+  background: #ffffff !important;
+  color: #333 !important;
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.15),
+    0 14px 30px rgba(0,0,0,0.15) !important;
+}
+
+.toc-container::before {
+  background: radial-gradient(circle at 0 0, #4b8cff, #ffffff) !important;
+  color: #222 !important;
+}
+
 .toc-container:hover {
-  max-height: 80vh !important;
-  overflow-y: auto !important;
-  /*padding: 15px !important;*/
+  background: radial-gradient(circle at top left, #f2f4fa 0, #ffffff 40%, #fafafa 100%) !important;
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.25),
+    0 18px 40px rgba(0,0,0,0.25) !important;
+}
+
+.toc-container h1,
+.toc-container h2,
+.toc-container h3 {
+  color: #222 !important;
+}
+
+.toc-container h1:first-child,
+.toc-container h2:first-child,
+.toc-container h3:first-child {
+  border-bottom-color: rgba(0,0,0,0.2) !important;
+}
+
+.toc-container li::before {
+  background: #4b8cff !important;
+  box-shadow: 0 0 0 4px rgba(75,140,255,0.25) !important;
+}
+
+.toc-container ul ul li::before {
+  background: #00aaff !important;
+  box-shadow: 0 0 0 3px rgba(0,170,255,0.22) !important;
+  left: 4px !important;
+}
+
+.toc-container a {
+  color: #1a3a7a !important;
+}
+
+.toc-container a:hover {
+  background: rgba(0,120,255,0.12) !important;
+  color: #003a8c !important;
+}
+
+.toc-container a:focus-visible {
+  outline-color: #0078ff !important;
 }
