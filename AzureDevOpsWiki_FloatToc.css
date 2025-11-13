@@ -1,0 +1,62 @@
+﻿/*
+	只支援 md 檔內是使用 [[_TOC_]] 的目錄！
+*/
+
+/* 固定在視窗右側 */
+.toc-container {
+  position: fixed !important;
+  top: 120px !important;
+  right: 20px !important;
+  width: 50px !important; 
+  min-width: 50px !important; 
+  height: 50px !important;
+  background: #ffe !important;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.15) !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+  z-index: 999999 !important;
+  transition: all 0.25s ease !important;
+  padding: 0px !important;
+}
+
+/* 收合狀態：隱藏所有內容（才不會撐寬度） */
+.toc-container > * {
+  display: none !important;
+}
+
+/* icon 顯示（不屬於內容，所以不會被隱藏）*/
+.toc-container::before {
+  content: "??" !important;
+  font-size: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: #9393FF	 !important;
+}
+
+/* 展開後 */
+.toc-container:hover {
+  width: auto !important;
+  height: 80vh !important;
+  padding: 0px 40px 0px 0px !important;
+}
+
+/* 展開：顯示內容 */
+.toc-container:hover > * {
+  display: block !important;
+}
+
+/* 展開後隱藏 icon */
+.toc-container:hover::before {
+  display: none !important;
+}
+
+/* 展開後支援捲軸 */
+.toc-container:hover {
+  max-height: 80vh !important;
+  overflow-y: auto !important;
+  /*padding: 15px !important;*/
+}
